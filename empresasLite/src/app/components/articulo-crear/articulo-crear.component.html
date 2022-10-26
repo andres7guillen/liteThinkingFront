@@ -1,0 +1,43 @@
+<h4>Create Article</h4>
+<hr />
+<div class="row text-right">
+  <div class="col">
+    <button routerLink="/articleList" class="btn btn-danger">
+      <i class="fa fa-arrow-left"> Back</i>
+    </button>
+  </div>
+</div>
+
+<div class="row animated fadeIn faster">
+  <div class="col">
+    <form autocomplete="off" [formGroup]="formulario" (ngSubmit)="Create()">
+      <div class="form-group">
+        <label>Name:</label>
+        <input type="text" formControlName="name" class="form-control" />
+      </div>
+      <small *ngIf="NameNoValid" class="text-danger">Field required*</small>
+
+      <div class="form-group">
+        <label>Company</label>
+        <select
+          class="custom-select mb-3"                   
+          formControlName="companyNit">
+          <option value="">Choose Company</option>
+          <option *ngFor="let company of companies" [ngValue]="company.nit">
+            {{ company.name }}
+          </option>
+        </select>
+        
+      </div>
+      
+
+      <hr />
+      <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary w-25">
+          <i class="fa fa-save"></i>
+          Create
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
