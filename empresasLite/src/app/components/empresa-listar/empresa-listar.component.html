@@ -1,0 +1,44 @@
+<h1>List companies</h1>
+<hr>
+
+<div class="row">
+    <div class="col text-right">
+        <button routerLink="/companyCreate" class="btn btn-primary">
+            <i class="fa fa-plus"> Create</i>
+        </button>
+    </div>
+</div>
+
+<table class="table mt-3 animated fadeIn faster">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nit</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>            
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let company of companies; let i = index">
+            <td>{{i + 1}}</td>
+            <td>{{company.nit}}</td>
+            <td>{{company.name}}</td>
+            <td>{{company.address}}</td>
+            <td>{{company.phone}}</td>            
+            <td>
+                <button class="btn btn-info mr-1" [routerLink]="['/companyEdit', company.nit]">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button (click)="deleteCompany(company)" class="btn btn-danger mr-1">
+                    <i class="fa fa-trash"></i>
+                </button>
+                <button [routerLink]="['/companyDetail',company.nit]" class="btn btn-info">
+                    <i class="fa fa-eye"></i>
+                </button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

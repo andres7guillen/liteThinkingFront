@@ -1,0 +1,53 @@
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-t-50 p-b-90">
+            <form [formGroup]="formulario" (ngSubmit)="Register()">
+
+                <span class="login100-form-title p-b-51">
+                    Create new user
+                </span>
+
+                
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" type="email" name="email" placeholder="Email" email required>
+
+                    <span class="focus-input100"></span>
+                </div>
+
+                
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" formControlName="password" type="password" name="pass" placeholder="Password">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 m-b-16">
+                    <input class="input100" [class.is-invalid]="samePassword" formControlName="confirmPasword"type="password" name="pass" placeholder="Confirm password">
+                    <span class="focus-input100"></span>
+                </div>
+                <small class="text-danger" *ngIf="samePassword">The passwords must be equals</small>
+
+                <div class="flex-sb-m w-full p-t-3 p-b-24">
+                    <div class="contact100-form-checkbox">
+                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                        <label class="label-checkbox100" for="ckb1">
+                            Remember my user
+                        </label>
+                    </div>
+
+                    <div>
+                        <a routerLink="/login" class="txt1">
+                            ¿Do you have already a User? / Login
+                        </a>
+                    </div>
+                </div>
+
+                <div class="container-login100-form-btn m-t-17">
+                    <button class="login100-form-btn" type="submit">
+                        Create User
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
